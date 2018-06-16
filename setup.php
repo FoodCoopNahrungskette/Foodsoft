@@ -635,7 +635,9 @@ function check_4() {
 }
 
 function check_5() {
-  global $leitvariable, $changes;
+  global $leitvariable, $changes, $db_server, $db_user, $db_pwd, $db_name;
+  $db = mysqli_connect($db_server,$db_user,$db_pwd);
+  mysqli_select_db($db, $db_name);
   //
   // (5) setup leitvariable database:
   //
@@ -984,6 +986,8 @@ if( count( $changes ) > 0 ) {
         <th>Ergebnis:</th>
       </tr>
   <?php
+  $db = mysqli_connect($db_server,$db_user,$db_pwd);
+  mysqli_select_db($db, $db_name);
   foreach( $changes as $s ) {
     ?>
       <tr>
