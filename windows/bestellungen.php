@@ -201,6 +201,8 @@ foreach( $bestellungen as $bestellung ) {
         break;
   
       case STATUS_VERTEILT:
+      case STATUS_ABGESCHLOSSEN_DIENST_3:
+      case STATUS_ABGESCHLOSSEN_DIENST_4:
         $views[] = fc_link( 'lieferschein', "class=href,bestell_id=$bestell_id,text=Lieferschein" );
         if( $login_dienst > 0 ) {
           $views[] = fc_link( 'verteilliste', "class=href,bestell_id=$bestell_id" );
